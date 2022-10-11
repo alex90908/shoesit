@@ -4,7 +4,7 @@ import 'package:sewain_aku/utils/sizes.dart';
 
 class TopDealers extends StatelessWidget {
   const TopDealers({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -41,14 +41,14 @@ class TopDealers extends StatelessWidget {
 
 class TopDealersCard extends StatelessWidget {
   const TopDealersCard({
-    Key key,
-    this.image,
-    this.title,
-    this.press,
+    Key? key,
+    required this.image,
+    required this.title,
+    required this.press,
   }) : super(key: key);
   final String image;
   final String title;
-  final Function press;
+  final VoidCallback press;
 
   @override
   Widget build(BuildContext context) {

@@ -20,6 +20,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "clippy_flutter",
+      "rootUri": "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/clippy_flutter-2.0.0-nullsafety.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "clock",
       "rootUri": "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/clock-1.1.1",
       "packageUri": "lib/",
@@ -239,10 +245,10 @@
       "name": "sewain_aku",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.7"
+      "languageVersion": "2.18"
     }
   ],
-  "generated": "2022-09-25T17:00:31.410397Z",
+  "generated": "2022-10-09T20:33:03.968208Z",
   "generator": "pub",
-  "generatorVersion": "2.18.0"
+  "generatorVersion": "2.18.2"
 }

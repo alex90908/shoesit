@@ -4,9 +4,9 @@ import 'package:sewain_aku/utils/sizes.dart';
 
 class TitleWithViewAllBtn extends StatelessWidget {
   const TitleWithViewAllBtn({
-    Key key,
-    this.title,
-    this.press,
+    Key? key,
+    required this.title,
+    required this.press,
   }) : super(key: key);
   final String title;
   final Function press;
@@ -27,15 +27,7 @@ class TitleWithViewAllBtn extends StatelessWidget {
                 ),
               ),
               Spacer(),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text('tst'),
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12), // <-- Radius
-                  ),
-                ),
-              ),
+
             ],
           ),
         ),

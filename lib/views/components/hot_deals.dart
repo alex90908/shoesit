@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:meta/meta.dart';
 import 'package:sewain_aku/utils/colors.dart';
 import 'package:sewain_aku/utils/sizes.dart';
+import 'package:sewain_aku/views/components/k.dart';
 
 class HotDeals extends StatelessWidget {
   const HotDeals({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -51,17 +53,17 @@ class HotDeals extends StatelessWidget {
 
 class HotDealCard extends StatelessWidget {
   const HotDealCard({
-    Key key,
-    this.image,
-    this.title,
-    this.location,
-    this.price,
-    this.press,
+    Key? key,
+    required this.image,
+    required this.title,
+    required this.location,
+    required this.price,
+    required this.press,
   }) : super(key: key);
 
   final String image, title, location;
   final int price;
-  final Function press;
+  final VoidCallback press;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -91,7 +93,7 @@ class HotDealCard extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .button
-                    .copyWith(color: textColor),
+                    ?.copyWith(color: textColor),
               ),
             ),
             Container(
@@ -102,7 +104,7 @@ class HotDealCard extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .button
-                    .copyWith(color: primaryColor.withOpacity(0.5)),
+                    ?.copyWith(color: primaryColor.withOpacity(0.5)),
               ),
             ),
             Image.asset(image,
@@ -117,14 +119,19 @@ class HotDealCard extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .button
-                    .copyWith(color: primaryColor),
+                    ?.copyWith(color: primaryColor),
               ),
             ),
             SizedBox(
               width: widthCard,
               child: ElevatedButton(
-                onPressed: () {},
-                child: Text('Button'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DetailApp()),
+                  );
+                },
+                child: Text('Pesan'),
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12), // <-- Radius

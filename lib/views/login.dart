@@ -5,6 +5,7 @@ import 'package:sewain_aku/views/home_view.dart';
 
 
 class SignDemo extends StatefulWidget {
+  const SignDemo({ Key? key }) : super(key: key);
   @override
   _SignDemoState createState() => _SignDemoState();
 }
@@ -63,7 +64,7 @@ class _SignDemoState extends State<SignDemo> {
                   color: Colors.blue, borderRadius: BorderRadius.circular(20)),
               child: TextButton(
                 onPressed: () {Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => HomeView()));},
+                    context, MaterialPageRoute(builder: (_) => BaseApp()));},
                 child: Text(
                   'Daftar',
                   style: TextStyle(color: Colors.white, fontSize: 25),
