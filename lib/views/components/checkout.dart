@@ -143,13 +143,6 @@ class FoodCheckoutOnePage extends StatelessWidget {
       ),
     );
 
-
-
-
-
-
-
-
   }
 
   Container _buildDivider() {

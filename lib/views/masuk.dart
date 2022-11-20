@@ -3,7 +3,10 @@ import 'package:sewain_aku/utils/colors.dart';
 import 'package:sewain_aku/views/login.dart';
 import 'package:sewain_aku/views/home_view.dart';
 import 'package:sewain_aku/views/components/bodyApp.dart';
-
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:sewain_aku/views/api.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sewain_aku/views/components/form.dart';
 
 
@@ -14,6 +17,49 @@ class LoginDemo extends StatefulWidget {
 }
 
 class _LoginDemoState extends State<LoginDemo> {
+  TextEditingController textController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+  _showMsg(msg) { //
+    final snackBar = SnackBar(
+      backgroundColor: Color(0xFF363f93),
+      content: Text(msg),
+      action: SnackBarAction(
+        label: 'Close',
+        onPressed: () {
+          // Some code to undo the change!
+        },
+      ),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
+  _login() async {
+    var data = {
+      'email' : emailController.text,
+      'password' : textController.text,
+    };
+
+    var res = await CallApi().postData(data, 'usr');
+    var body = json.decode(res.body);
+    print(body);
+    if(body['success']){
+      SharedPreferences localStorage = await SharedPreferences.getInstance();
+      localStorage.setString('token', body['token']);
+      localStorage.setString('user', json.encode(body['user']));
+      Navigator.push(
+          context,
+          new MaterialPageRoute(
+              builder: (context) => BaseApp()));
+    }else{
+      _showMsg(body['message']);
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,6 +86,7 @@ class _LoginDemoState extends State<LoginDemo> {
               //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
+                controller: emailController,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Email',
@@ -51,7 +98,7 @@ class _LoginDemoState extends State<LoginDemo> {
                   left: 15.0, right: 15.0, top: 15, bottom: 15),
               //padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
-
+                controller: textController,
                 obscureText: true,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
@@ -74,8 +121,9 @@ class _LoginDemoState extends State<LoginDemo> {
               decoration: BoxDecoration(
                   color: Colors.blue, borderRadius: BorderRadius.circular(20)),
               child: TextButton(
-                onPressed: () {Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => BaseApp()));},
+                onPressed: () async {
+                  _login();
+                  },
                 child: Text(
                   'Login',
                   style: TextStyle(color: Colors.white, fontSize: 25),

@@ -28,16 +28,16 @@
         "source": "C:\\Users\\ACER\\.gradle\\caches\\transforms-2\\files-2.1\\dcfb90d56760b4bedcc8558d12543dd3\\core-1.6.0\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
     },
     {
+        "merged": "C:\\Users\\ACER\\StudioProjects\\sewain_aku\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.jpeg.flat",
+        "source": "C:\\Users\\ACER\\StudioProjects\\sewain_aku\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.jpeg"
+    },
+    {
         "merged": "C:\\Users\\ACER\\StudioProjects\\sewain_aku\\build\\app\\intermediates\\res\\merged\\debug\\drawable_launch_background.xml.flat",
         "source": "C:\\Users\\ACER\\StudioProjects\\sewain_aku\\android\\app\\src\\main\\res\\drawable\\launch_background.xml"
     },
     {
         "merged": "C:\\Users\\ACER\\StudioProjects\\sewain_aku\\build\\app\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_normal.9.png.flat",
         "source": "C:\\Users\\ACER\\.gradle\\caches\\transforms-2\\files-2.1\\dcfb90d56760b4bedcc8558d12543dd3\\core-1.6.0\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
-    },
-    {
-        "merged": "C:\\Users\\ACER\\StudioProjects\\sewain_aku\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.jpeg.flat",
-        "source": "C:\\Users\\ACER\\StudioProjects\\sewain_aku\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.jpeg"
     },
     {
         "merged": "C:\\Users\\ACER\\StudioProjects\\sewain_aku\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_normal.9.png.flat",

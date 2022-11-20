@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sewain_aku/views/components/ty.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:sewain_aku/views/api.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(const FormApp());
@@ -29,6 +33,7 @@ class FormPage extends StatefulWidget {
 }
 
 class _FormPageState extends State<FormPage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,13 +53,46 @@ class SignUpForm extends StatefulWidget {
 }
 
 class _SignUpFormState extends State<SignUpForm> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController AlamatController = TextEditingController();
+  TextEditingController MetodeController = TextEditingController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  _register() async {
+    var data = {
+      'nama'  : nameController.text,
+      'email' : emailController.text,
+      'Metode' : MetodeController.text,
+      'Alamat' : AlamatController.text,
+    };
+
+
+    var res = await CallApi().postData(data, 'form');
+    var body = json.decode(res.body);
+    print(body);
+    if(body['success']){
+      //SharedPreferences localStorage = await SharedPreferences.getInstance();
+      // localStorage.setString('token', body['token']);
+      //localStorage.setString('user', json.encode(body['user']));
+      Navigator.push(
+          context,
+          new MaterialPageRoute(
+              builder: (context) => ThankYouPage(title: "hi",)));
+    }
+  }
   final _formKey = GlobalKey<FormState>();
   final _passKey = GlobalKey<FormFieldState>();
 
   String _name = '';
   String _email = '';
-  int _age = -1;
-  String _maritalStatus = 'single';
+  String _age = '';
+  int _No = 0;
   int _selectedGender = 0;
   String _password = '';
   bool _termsChecked = true;
@@ -92,6 +130,7 @@ class _SignUpFormState extends State<SignUpForm> {
     List<Widget> formWidget = [];
 
     formWidget.add(TextFormField(
+      controller: nameController,
       decoration:
       const InputDecoration(labelText: 'Enter Name', hintText: 'Name'),
       validator: (value) {
@@ -124,6 +163,7 @@ class _SignUpFormState extends State<SignUpForm> {
     }
 
     formWidget.add(TextFormField(
+      controller: emailController,
       decoration:
       const InputDecoration(labelText: 'Enter Email', hintText: 'Email'),
       keyboardType: TextInputType.emailAddress,
@@ -136,9 +176,10 @@ class _SignUpFormState extends State<SignUpForm> {
     ));
 
     formWidget.add(TextFormField(
+      controller: AlamatController,
       decoration:
-      const InputDecoration(hintText: 'Age', labelText: 'Enter Age'),
-      keyboardType: TextInputType.number,
+      const InputDecoration(hintText: 'Age', labelText: 'Masukkan alamat'),
+      keyboardType: TextInputType.text,
       validator: (value) {
         if (value!.isEmpty) {
           return 'Enter age';
@@ -148,7 +189,7 @@ class _SignUpFormState extends State<SignUpForm> {
       },
       onSaved: (value) {
         setState(() {
-          _age = int.parse(value.toString());
+          _age = value.toString();
         });
       },
     ));
@@ -165,29 +206,23 @@ class _SignUpFormState extends State<SignUpForm> {
       isExpanded: true,
     ));
 
-    formWidget.add(Column(
-      children: <Widget>[
-        RadioListTile<String>(
-          title: const Text('Single'),
-          value: 'single',
-          groupValue: _maritalStatus,
-          onChanged: (value) {
-            setState(() {
-              _maritalStatus = value.toString();
-            });
-          },
-        ),
-        RadioListTile<String>(
-          title: const Text('Married'),
-          value: 'married',
-          groupValue: _maritalStatus,
-          onChanged: (value) {
-            setState(() {
-              _maritalStatus = value.toString();
-            });
-          },
-        ),
-      ],
+    formWidget.add(TextFormField(
+      controller: MetodeController,
+      decoration:
+      const InputDecoration(hintText: 'No HP', labelText: 'No HP'),
+      keyboardType: TextInputType.number,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Enter age';
+        } else {
+          return null;
+        }
+      },
+      onSaved: (value) {
+        setState(() {
+          _No = int.parse(value.toString());
+        });
+      },
     ));
 
     formWidget.add(
@@ -255,23 +290,6 @@ class _SignUpFormState extends State<SignUpForm> {
       if (_formKey.currentState!.validate() && _termsChecked) {
         _formKey.currentState?.save();
 
-        print("Name " + _name);
-        print("Email " + _email);
-        print("Age " + _age.toString());
-        switch (_selectedGender) {
-          case 0:
-            print("Gender Male");
-            break;
-          case 1:
-            print("Gender Female");
-            break;
-          case 3:
-            print("Gender Others");
-            break;
-        }
-        print("Marital Status " + _maritalStatus);
-        print("Password " + _password);
-        print("Termschecked " + _termsChecked.toString());
         ScaffoldMessenger.of(context)
             .showSnackBar(const SnackBar(content: Text('Form Submitted')));
       }
@@ -279,11 +297,8 @@ class _SignUpFormState extends State<SignUpForm> {
 
     formWidget.add(ElevatedButton(
         child: const Text('Sign Up'),
-        onPressed: (){
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => ThankYouPage(title: "hi",)),
-          );
+        onPressed: () async{
+          _register();
         }));
 
     return formWidget;

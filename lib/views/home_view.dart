@@ -32,7 +32,7 @@ class _BaseAppState extends State<BaseApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavBar(),
+      drawer: Navbar(),
       appBar: AppBar(title: Text("Login Page")),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
