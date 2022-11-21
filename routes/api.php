@@ -22,7 +22,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get("/tes", [TesController::class, 'tes']);
-Route::get("/usr", [LoginController::class, 'postlogin']);
+Route::post("/usr", [LoginController::class, 'login']);
 Route::post("/register", [LoginController::class, 'simpanreg']);
+Route::post("/logout", [LoginController::class, 'logout']);
+Route::post("/form", [TesController::class, 'formk']);
 
 
