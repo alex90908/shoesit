@@ -7,8 +7,9 @@ import 'package:sewain_aku/views/components/P4rofile.dart';
 import 'package:sewain_aku/views/components/checkout.dart';
 import 'package:sewain_aku/views/components/listview.dart';
 import 'package:sewain_aku/views/masuk.dart';
-import 'package:sewain_aku/views/components/listview.dart';
+import 'package:sewain_aku/views/components/k.dart';
 import 'package:sewain_aku/views/api.dart';
+import 'package:sewain_aku/views/oba.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -121,7 +122,12 @@ class _NavbarState extends State<Navbar> {
           ListTile(
             leading: Icon(Icons.description),
             title: Text('Policies'),
-            onTap: () => null,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => DetailApp()),
+              );
+            }
           ),
           Divider(),
           ListTile(
@@ -130,7 +136,7 @@ class _NavbarState extends State<Navbar> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => _login()),
+                MaterialPageRoute(builder: (context) =>_login()),
               );
             },
           ),

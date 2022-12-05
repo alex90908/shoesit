@@ -4,7 +4,7 @@ import 'package:sewain_aku/views/components/bodyApp.dart';
 import 'package:sewain_aku/views/components/navbar.dart';
 import 'package:sewain_aku/views/login.dart';
 import 'package:sewain_aku/views/masuk.dart';
-import 'package:sewain_aku/views/components/checkout.dart';
+import 'package:sewain_aku/views/components/cekot.dart';
 import 'package:sewain_aku/views/components/P4rofile.dart';
 
 class BaseApp extends StatefulWidget {
@@ -19,7 +19,7 @@ class _BaseAppState extends State<BaseApp> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     BodyApp(),
-    FoodCheckoutOnePage(),
+    cekot(),
     Profile(),
   ];
 

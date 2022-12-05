@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sewain_aku/utils/colors.dart';
 import 'package:sewain_aku/utils/sizes.dart';
-import 'package:sewain_aku/views/components/hot_deals.dart';
+import 'package:sewain_aku/views/components/homepage.dart';
 import 'package:sewain_aku/views/components/title_with_view_all_btn.dart';
-import 'package:sewain_aku/views/components/top_dealers.dart';
+import 'package:sewain_aku/views/components/cek.dart';
 import 'header_with_search_box.dart';
 
 class BodyApp extends StatefulWidget {
@@ -27,9 +27,11 @@ class _BodyAppState extends State<BodyApp> {
 
               HeaderWithSearchBox(size: size),
               TitleWithViewAllBtn(title: "Jasa Cuci", press: () {}),
-              HotDeals(),
+              SizedBox(height:15,),
+              HomePage(),
+              SizedBox(height:15,),
               TitleWithViewAllBtn(title: "Jenis Sepatu", press: () {}),
-              TopDealers(),
+              Barang(),
               SizedBox(height: defaultPadding),
             ],
           ),

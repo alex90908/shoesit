@@ -65,7 +65,7 @@ class _LoginDemoState extends State<LoginDemo> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("Login Page"),
+        title: Text("Login x"),
       ),
       body: SingleChildScrollView(
         child: Column(

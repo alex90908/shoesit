@@ -54,9 +54,9 @@ INJECTED from C:\Users\ACER\StudioProjects\sewain_aku\android\app\src\debug\Andr
 	xmlns:android
 		ADDED from C:\Users\ACER\StudioProjects\sewain_aku\android\app\src\main\AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\ACER\StudioProjects\sewain_aku\android\app\src\main\AndroidManifest.xml:3:5-67
-MERGED from C:\Users\ACER\StudioProjects\sewain_aku\android\app\src\main\AndroidManifest.xml:3:5-67
-MERGED from C:\Users\ACER\StudioProjects\sewain_aku\android\app\src\main\AndroidManifest.xml:3:5-67
+ADDED from C:\Users\ACER\StudioProjects\sewain_aku\android\app\src\main\AndroidManifest.xml:3:5-66
+MERGED from C:\Users\ACER\StudioProjects\sewain_aku\android\app\src\main\AndroidManifest.xml:3:5-66
+MERGED from C:\Users\ACER\StudioProjects\sewain_aku\android\app\src\main\AndroidManifest.xml:3:5-66
 	android:name
 		ADDED from C:\Users\ACER\StudioProjects\sewain_aku\android\app\src\main\AndroidManifest.xml:3:22-64
 uses-sdk

@@ -3,119 +3,110 @@ import 'package:flutter/material.dart';
 class Profile extends StatefulWidget {
   const Profile({ Key? key }) : super(key: key);
 
-
   @override
   _ProfileState createState() => _ProfileState();
 }
 
 class _ProfileState extends State<Profile> {
+
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-          child: Column(
-            children: [
-              //for circle avtar image
-              _getHeader(),
-              SizedBox(
-                height: 10,
-              ),
-              _profileName("User"),
-              SizedBox(
-                height: 14,
-              ),
-              _heading("Personal Details"),
-              SizedBox(
-                height: 6,
-              ),
-              _detailsCard(),
-              Spacer(),
-
-            ],
-          )),
-    );
-  }
-
-  Widget _getHeader() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return ListView(
+      scrollDirection: Axis.vertical,
+      padding: EdgeInsets.fromLTRB(0, 20, 0, 40),
       children: [
-        Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Container(
-            height: 100,
-            width: 100,
-            decoration: BoxDecoration(
-              //borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: NetworkImage(
-                        "https://oflutter.com/wp-content/uploads/2021/02/girl-profile.png"),),
-              // color: Colors.orange[100],
+        Column(
+          children: [
+            // Container(
+            //   width: MediaQuery.of(context).size.width/1.2,
+            //   height: 50,
+            //   decoration: BoxDecoration(
+            //     // color: Color(0xFFff9934),
+            //     border: Border.all(
+            //       color: Color(0xFFff9934),
+            //       width: 1.4
+            //       ),
+            //     borderRadius: BorderRadius.circular(45)
+            //   ),
+            //   child: Center(
+            //     child: TextField(
+            //       decoration: InputDecoration(
+            //           prefixIcon: Icon(
+            //             Icons.search,
+            //             ),
+
+            //           // suffixIcon: IconButton(
+            //           //   icon: Icon(Icons.clear),
+            //           //   onPressed: () {
+            //           //     /* Clear the search field */
+            //           //   },
+            //           // ),
+            //           hintText: "Cari Favorit...",
+            //           hintStyle: TextStyle(
+            //             ),
+            //           border: InputBorder.none),
+            //     ),
+            //   ),
+            // ),
+
+            // Divider(
+            //   thickness: 0.5,
+            //   indent: MediaQuery.of(context).size.width/18,
+            //   endIndent: MediaQuery.of(context).size.width/18,
+            //   color: Color(0xFFff9934),
+            //   height: 40,
+            // ),
+
+            Container(
+              child: ClipOval(
+                child: Image.network(
+                  "https://oflutter.com/wp-content/uploads/2021/02/girl-profile.png",
+                  width: MediaQuery.of(context).size.width/1.5,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
-          ),
+
+            Container(
+              width: MediaQuery.of(context).size.width/1.2,
+              child: Column(
+                children: [
+                  //row for each deatails
+                  ListTile(
+                    leading: Icon(Icons.email),
+                    title: Text("Something@gmail.com"),
+                  ),
+                  Divider(
+                    height: 0.2,
+                    color: Colors.black87,
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.phone),
+                    title: Text("1234567890"),
+                  ),
+                  Divider(
+                    height: 0.2,
+                    color: Colors.black87,
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.location_on),
+                    title: Text("SomeWhere"),
+                  )
+                ],
+              ),
+            ),
+
+            Container(
+              height: 20,
+            ),
+
+            Container(
+              width: MediaQuery.of(context).size.width/1.5,
+            ),
+          ],
         ),
       ],
     );
   }
-
-  Widget _profileName(String name) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.80, //80% of width,
-      child: Center(
-        child: Text(
-          name,
-          style: TextStyle(
-              color: Colors.black, fontSize: 24, fontWeight: FontWeight.w800),
-        ),
-      ),
-    );
-  }
-
-  Widget _heading(String heading) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.80, //80% of width,
-      child: Text(
-        heading,
-        style: TextStyle(fontSize: 16),
-      ),
-    );
-  }
-
-  Widget _detailsCard() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Card(
-        elevation: 4,
-        child: Column(
-          children: [
-            //row for each deatails
-            ListTile(
-              leading: Icon(Icons.email),
-              title: Text("Something@gmail.com"),
-            ),
-            Divider(
-              height: 0.6,
-              color: Colors.black87,
-            ),
-            ListTile(
-              leading: Icon(Icons.phone),
-              title: Text("1234567890"),
-            ),
-            Divider(
-              height: 0.6,
-              color: Colors.black87,
-            ),
-            ListTile(
-              leading: Icon(Icons.location_on),
-              title: Text("SomeWhere"),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-
 }
