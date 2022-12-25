@@ -3,7 +3,7 @@ import 'package:sewain_aku/views/components/P4rofile.dart';
 import 'package:sewain_aku/views/components/k.dart';
 import 'package:sewain_aku/views/components/asset.dart';
 import 'package:sewain_aku/views/components/form.dart';
-import 'package:sewain_aku/views/components/P4rofile.dart';
+import 'package:sewain_aku/views/masuk.dart';
 import 'package:sewain_aku/views/components/checkout.dart';
 import 'package:sewain_aku/views/components/listview.dart';
 import 'package:sewain_aku/views/masuk.dart';
@@ -97,16 +97,7 @@ class _NavbarState extends State<Navbar> {
               );
             },
           ),
-          ListTile(
-            leading: Icon(Icons.person),
-            title: Text('Profile'),
-            onTap: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Profile()),
-              );
-            },
-          ),
+
 
           Divider(),
           ListTile(
@@ -136,7 +127,7 @@ class _NavbarState extends State<Navbar> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) =>_login()),
+                MaterialPageRoute(builder: (context) =>LoginDemo()),
               );
             },
           ),

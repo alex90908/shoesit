@@ -16,11 +16,15 @@ class SignDemo extends StatefulWidget {
 class _SignDemoState extends State<SignDemo> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController namaController = TextEditingController();
+  TextEditingController nohpController = TextEditingController();
 
   _register() async {
     var data={
       'email':emailController.text,
       'password':passwordController.text,
+      'nama':namaController.text,
+      'nohp':nohpController.text,
     };
 
     var res = await CallApi().postData(data, 'register');
@@ -64,6 +68,9 @@ class _SignDemoState extends State<SignDemo> {
                     child: Image.asset('assets/honda/2.png')),
               ),
             ),
+            SizedBox(
+              height: 10,
+            ),
             Padding(
               //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
               padding: EdgeInsets.symmetric(horizontal: 15),
@@ -72,9 +79,38 @@ class _SignDemoState extends State<SignDemo> {
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'email',
+                    hintText: 'masukkan nama'),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              child: TextField(
+                controller: nohpController,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'nohp',
                     hintText: 'Enter valid email id as abc@gmail.com'),
               ),
             ),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              child: TextField(
+                controller: namaController,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'nama',
+                    hintText: 'Enter valid email id as abc@gmail.com'),
+              ),
+            ),
+
             Padding(
               padding: const EdgeInsets.only(
                   left: 15.0, right: 15.0, top: 15, bottom: 15),

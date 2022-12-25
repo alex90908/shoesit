@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 class CallApi{
-  final String _url="http://192.168.199.201:8000/api/";
+  final String _url="http://192.168.81.201:8000/api/";
   final String _imgUrl="http://192.168.81.201:8000/uploads/";
   getImage(){
     return _imgUrl;

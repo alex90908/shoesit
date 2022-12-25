@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sewain_aku/views/components/update.dart';
 
 class Profile extends StatefulWidget {
   const Profile({ Key? key }) : super(key: key);
@@ -103,6 +104,24 @@ class _ProfileState extends State<Profile> {
 
             Container(
               width: MediaQuery.of(context).size.width/1.5,
+            ),
+            Container(
+              height: 50,
+              width: 250,
+              decoration: BoxDecoration(
+                  color: Colors.blue, borderRadius: BorderRadius.circular(20)),
+              child: TextButton(
+                onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => update()),
+                  );
+                },
+                child: Text(
+                  'Daftar',
+                  style: TextStyle(color: Colors.white, fontSize: 25),
+                ),
+              ),
             ),
           ],
         ),

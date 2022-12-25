@@ -104,7 +104,7 @@ class _BarangState extends State<Barang> {
                         borderRadius: BorderRadius.circular(10.0),
                         image: DecorationImage(
                           fit: BoxFit.fill,
-                          image: NetworkImage("http://192.168.199.201:8000/uploads/"+sepat[i].gambar),
+                          image: NetworkImage("http://192.168.81.201:8000/uploads/"+sepat[i].gambar),
                         ),
                       ),
                     ),
